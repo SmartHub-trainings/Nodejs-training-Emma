@@ -2,6 +2,7 @@
 const http = require("http");
 const fs = require("fs").promises;
 const path = require("path");
+const user = { nAME: "SMIITH", age: 89 };
 
 const port = 5000;
 // console.log(http.STATUS_CODES);
@@ -19,6 +20,11 @@ http
         res.writeHead(200, "Ok", { "Content-type": "text/html" });
 
         res.write(data);
+        res.end();
+      } else if (req.url === "/profile") {
+        // res.writeHead(200, "Ok", { "Content-type": "application/json" });
+
+        res.write(JSON.stringify(user));
         res.end();
       } else if (req.url === "/about") {
         res.write("Welcome to the about page");
