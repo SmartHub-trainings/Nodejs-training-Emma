@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <script defer src="/js/index.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is the Home page</h1>
+    <nav>
+      <ul class="main-nav">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+        <li>
+          <a href="/register">Register</a>
+        </li>
+      </ul>
+    </nav>
+    <h2>Number of users:<%=users.length %></h2>
+    <div>Date:<%=date %></div>
+    <h3>Users</h3>
+    <ul>
+      <% users.forEach((user)=>{ %>
+      <li><%=user %></li>
+
+      <%}) %>
+    </ul>
+    <% if(users.length===0){%>
+    <p>There are no users to displa</p>
+
+    <%}%>
+  </body>
+</html>
