@@ -17,13 +17,30 @@ const ProductSchema = new Schema({
     type: String,
     required: true,
   },
+  imageURL: {
+    type: String,
+    required: true,
+  },
   catSlug: {
     type: String,
   },
   titleSlug: {
     type: String,
   },
+  addedBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
+
+const populateUser = function (next) {
+  this.populate("addedBy", "_id email firstName");
+  next();
+};
+
+ProductSchema.pre("find", populateUser)
+  .pre("findOne", populateUser)
+  .pre("findOneAndUpdate", populateUser);
 
 const Product = model("Product", ProductSchema);
 
