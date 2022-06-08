@@ -19,6 +19,7 @@ mongoose
 
 app.use("/products", require("./routes/products"));
 app.use("/auth", require("./routes/auth"));
+app.use("/users", require("./routes/users"));
 
 app.use("*", (req, res) => {
   return res.status(404).json({ error: { messgage: "Not Found" } });

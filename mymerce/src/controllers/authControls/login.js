@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
         },
       });
     }
-    const token = sign({ _id: user._id }, "my secret", { expiresIn: "5m" });
+    const token = sign({ _id: user._id }, "my secret", { expiresIn: "20m" });
 
     return res.status(201).json({ token, user });
   } catch (error) {
